@@ -4,6 +4,9 @@
 namespace mtm {
 
     DateWrap::DateWrap(int day, int month, int year) {
+        if (day < 1 || day > 30 || month < 1 || month > 12 || year < 0) {
+            throw InvalidDate();
+        }
         date = dateCreate(day, month, year);
         return;
     }
